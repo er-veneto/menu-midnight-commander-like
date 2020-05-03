@@ -16,7 +16,7 @@ this file contains all the data of every menu item in this order:
 
 *number of the menu level*;*name of the item*;*higher menu level name*;*return code of the item*
 
-!!! BE CAREFUL  !!!
+**!!! BE CAREFUL !!!**
 1. The return code can be omitted if the item has not got any submenu item
 2. The first level menu item has NULL as higher menu level name
 3. do NOT put any space in the name of the item
