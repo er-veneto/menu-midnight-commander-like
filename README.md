@@ -62,3 +62,4 @@ commands of the second and the third menu level:
     3. left arrow:      show the higher level items of the selected menu element
     4. right arrow:     show the lower level items of the selected menu element
 [![](https://www.paypal.com/en_IT/i/scr/pixel.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=98D7V3XCTU9LS&source=url)
+[![](https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=X6XHVCPMRQEL4)
