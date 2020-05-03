@@ -61,3 +61,11 @@ commands of the second and the third menu level:
     2. down arrow:      move to the next menu item
     3. left arrow:      show the higher level items of the selected menu element
     4. right arrow:     show the lower level items of the selected menu element
+
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick" />
+<input type="hidden" name="hosted_button_id" value="98D7V3XCTU9LS" />
+<input type="image" src="https://www.paypalobjects.com/en_US/IT/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+<img alt="" border="0" src="https://www.paypal.com/en_IT/i/scr/pixel.gif" width="1" height="1" />
+</form>
