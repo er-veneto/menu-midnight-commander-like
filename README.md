@@ -10,6 +10,7 @@ required libraries:
 4. bits
 
 **CREATING THE CONFIGURATION FILE**
+
 the program configuration file path can be specified as argv
 
 example:
