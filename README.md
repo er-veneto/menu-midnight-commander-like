@@ -8,7 +8,6 @@ required libraries:
 2. ncurses.h
 3. string
 4. bits
-5. boost
 
 ***************CREATING THE CONFIGURATION FILE***************
 the program configuration file has to be created in ~/ and has to be called .menu.conf
