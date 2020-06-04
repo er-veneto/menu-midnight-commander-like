@@ -9,7 +9,7 @@ required libraries:
 3. string
 4. bits
 
-***************CREATING THE CONFIGURATION FILE***************
+**CREATING THE CONFIGURATION FILE**
 the program configuration file path can be specified as argv
 
 example:
