@@ -9,9 +9,9 @@ using namespace std;
 #define ESC 27                      //ASCII codfication for the key 'esc'
 #define ESC_VALUE -1                //value returned if the key 'esc' is pressed
 
-#define TEMP_STR_LENGHT 50      //lengt of the temporary string used for reading the conf file
+#define TEMP_STR_LENGHT 50          //lengt of the temporary string used for reading the conf file
 
-#define SEPARATOR ';'       //character used to separate the data in the configuration file
+#define SEPARATOR ';'               //character used to separate the data in the configuration file
 
 #define MENU_ST_HEIGHT 3            //height of the first menu level
 
@@ -60,11 +60,11 @@ private:
 public:
     generator_t();
 
-    void create(char* argv);                          /*create all the menu item reading with the data contained in the configuration file.
+    void create(char* argv);                /*create all the menu item reading with the data contained in the configuration file.
                                             It returns a pointer to the first element*/
     void read(vector <data_t> &readIt, char* argv);
-    data_t newIt(string input);             //obtain data about the menu item from the string "input" and return a formatted struct
-    void splitString(vector <string> &split, string &inputString);      //receive as input a string which will be splitted and a string vector to save the splitted data
+    data_t newIt(string input);                                     //obtain data about the menu item from the string "input" and return a formatted struct
+    void splitString(vector <string> &split, string &inputString);  //receive as input a string which will be splitted and a string vector to save the splitted data
     void sort(vector <data_t> &readIt);
     void tree(vector <data_t> &readIt, menuPtr_t prevEl);
 
@@ -80,7 +80,7 @@ private:
 public:
     handler_t(char* argv);
 
-    void printMenuFirstLv();                                                            //print the first menu level items
+    void printMenuFirstLv();                                                //print the first menu level items
     void printMenuLowerLv(int width, menuPtr_t firstLvIt, int startX);      //print menu level items under the first
 
 };
@@ -143,19 +143,19 @@ generator_t::generator_t(){
 
 void generator_t::create(char* argv){
 
-    vector <data_t> readIt;         //list used to contain the data read in the configuration file
+    vector <data_t> readIt;              //list used to contain the data read in the configuration file
     
     read(readIt,argv);                   //read the configuration file and create a list with the read data
     
     firstIt=new menu_t(readIt[0].lev,readIt[0].retCode,readIt[0].name,NULL,NULL,NULL,NULL);
     readIt.erase(readIt.begin());
     
-    tree(readIt,firstIt);           //creates the tree which contains every item of the menu
+    tree(readIt,firstIt);                //creates the tree which contains every item of the menu
 }
 
 void generator_t::read(vector <data_t> &readIt, char* argv){
     char str[TEMP_STR_LENGHT];               //string used containt temporarily every line of the configuration
-    FILE* fpConf;               //file pointer used to read the configuration file       
+    FILE* fpConf;                            //file pointer used to read the configuration file       
     string path=argv;
 
     fpConf=fopen(path.c_str(),"r");
@@ -164,7 +164,7 @@ void generator_t::read(vector <data_t> &readIt, char* argv){
             while(fgets(str,sizeof(str),fpConf))
                 readIt.push_back(newIt(str));
 
-            sort(readIt);       //sort the vector passed in the suitable way to create the tree for the menu
+            sort(readIt);                    //sort the vector passed in the suitable way to create the tree for the menu
     }else{
         cout << "error: configuration file not found!" << endl;
         exit(-1);
@@ -174,7 +174,7 @@ void generator_t::read(vector <data_t> &readIt, char* argv){
 }
 
 data_t generator_t::newIt(string input){
-    vector <string> split;          //temporary vector of string to contain data from the string "input"
+    vector <string> split;                  //temporary vector of string to contain data from the string "input"
     data_t temp;
     
     splitString(split,input);
@@ -182,7 +182,7 @@ data_t generator_t::newIt(string input){
     temp.lev=stoi(split[0]);
     temp.name=split[1];
     temp.higherLvName=split[2];
-    if(split.size()==4)                 //assign a return code only if the menu item has one in the configuration file
+    if(split.size()==4)                     //assign a return code only if the menu item has one in the configuration file
         temp.retCode=stoi(split[3]);
     
     return temp;
@@ -191,14 +191,14 @@ data_t generator_t::newIt(string input){
 void generator_t::splitString(vector <string> &split, string &inputString){
     string::iterator iterator=inputString.begin(); 
 
-    split.resize(1);        //require the memory for one element
+    split.resize(1);                            //require the memory for one element
     
     while(iterator!=inputString.end()){
         split[split.size()-1]+=*iterator;       //adding to the last element of split the content of the input string
         iterator++;
         if(*iterator==SEPARATOR){
             split.resize(split.size()+1);       //adding new element
-            iterator++;                                 //moving on the iterator to skip the separator character (;)
+            iterator++;                         //moving on the iterator to skip the separator character (;)
         }
     }
 }
@@ -225,10 +225,10 @@ void generator_t::sort(vector <data_t> &readIt){
 }
 
 void generator_t::tree(vector <data_t> &readIt,menuPtr_t prevEl){//prevEl: previous element in the menu
-    int next;       //will contain the next element level if exists to control the recursion
+    int next;                                           //will contain the next element level if exists to control the recursion
     
     do{
-        if(!readIt.empty()){    //true if the list is empty
+        if(!readIt.empty()){                            //true if the list is empty
 
             if(prevEl->getLev()==readIt[0].lev){        //if the new element belongs to the same menu level
 
@@ -328,7 +328,7 @@ void handler_t::printMenuFirstLv(){
 
 void handler_t::printMenuLowerLv(int width, menuPtr_t firstLvIt, int startX){   //height:height of the box, width: width of the box, firstLvIt: first item of that level, x coordinates of the top left box corner 
     menuPtr_t iterator;                    //iterator to scan all the menu level item
-    int input=0, prevItems,height=2;         //input: keyboard input, prevItems: elemtens already printed on the screen
+    int input=0, prevItems,height=2;       //input: keyboard input, prevItems: elemtens already printed on the screen
     
     initscr();        //setup memory and clears the screen
     
@@ -402,6 +402,6 @@ void handler_t::printMenuLowerLv(int width, menuPtr_t firstLvIt, int startX){   
 int main(int argc, char** argv){
     handler_t *handler;
     
-    handler= new handler_t(argv[1]);
+    handler= new handler_t(argv[1]);    //passing as argument only the path of the conf file
     handler->printMenuFirstLv();
 }
