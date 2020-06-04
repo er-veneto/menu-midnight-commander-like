@@ -10,7 +10,12 @@ required libraries:
 4. bits
 
 ***************CREATING THE CONFIGURATION FILE***************
-the program configuration file has to be created in ~/ and has to be called .menu.conf
+the program configuration file path can be specified as argv
+
+example:
+      g++ main.cpp -o main.out -lncurses
+      main.out /path/of/the/.conf/file
+      
 this file contains all the data of every menu item in this order:
 
 *number of the menu level*;*name of the item*;*higher menu level name*;*return code of the item*
@@ -18,11 +23,9 @@ this file contains all the data of every menu item in this order:
 **!!! BE CAREFUL !!!**
 1. The return code can be omitted if the item has not got any submenu item
 2. The first level menu item has NULL as higher menu level name
-3. do NOT put any space in the name of the item
-4. the program IS CASE SENSITIVE so be careful while you are writing the configuration file
-5. do NOT leave any space before,between and after the lines of the configuration file
-6. ALWAYS write a menu level BEFORE its sublevels (on the top al the element of the first level; then all the elements of the second
-   level; then the elements of the third level). the elements will be sorted during the executio of the program
+3. the program IS CASE SENSITIVE so be careful while you are writing the configuration file
+4. do NOT leave any space before,between and after the lines of the configuration file
+5. ALWAYS write a menu level BEFORE its sublevels (on the top al the element of the first level; then all the elements of the second level; then the elements of the third level). the elements will be sorted during the execution of the program
 
 example:
 
